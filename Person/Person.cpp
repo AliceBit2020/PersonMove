@@ -38,29 +38,29 @@ Person::Person(int ag, const char* m_f, const char* nm, const char* fn, const ch
 
 }
 
-Person::Person(const Person& prs)/////copy constructor
-{
-	cout << "Copy constructor" << endl;
-	/////name = prs.name; ///побітове копі
-	int size = strlen(prs.name) + 1;
-	name = new char[size];
-	strcpy_s(name, size, prs.name);
-
-	size = strlen(prs.fname) + 1;
-	fname = new char[size];
-	strcpy_s(fname, size, prs.fname);
-
-	size = strlen(prs.mf) + 1;
-	mf = new char[size];
-	strcpy_s(mf, size, prs.mf);
-
-	size = strlen(prs.phone) + 1;
-	phone = new char[size];
-	strcpy_s(phone, size, prs.phone);
-
-	age = prs.age;
-
-}
+//Person::Person(const Person& prs)/////copy constructor
+//{
+//	cout << "Copy constructor" << endl;
+//	/////name = prs.name; ///побітове копі
+//	int size = strlen(prs.name) + 1;
+//	name = new char[size];
+//	strcpy_s(name, size, prs.name);
+//
+//	size = strlen(prs.fname) + 1;
+//	fname = new char[size];
+//	strcpy_s(fname, size, prs.fname);
+//
+//	size = strlen(prs.mf) + 1;
+//	mf = new char[size];
+//	strcpy_s(mf, size, prs.mf);
+//
+//	size = strlen(prs.phone) + 1;
+//	phone = new char[size];
+//	strcpy_s(phone, size, prs.phone);
+//
+//	age = prs.age;
+//
+//}
 
 
 
@@ -81,36 +81,36 @@ Person::Person( Person&& prs)/////   obj=prs
 	prs.phone = nullptr;
 }
 
-Person& Person::operator=(const Person& prs)
-{
-	cout << "Operator = copy" << endl;
-
-	int size = strlen(prs.name) + 1;
-	//////name = new char[8]{ "Unknown" };
-	delete[] name;
-	name = new char[size];
-	strcpy_s(name, size, prs.name);
-
-	size = strlen(prs.fname) + 1;
-	delete[] fname;
-	fname = new char[size];
-	strcpy_s(fname, size, prs.fname);
-
-	size = strlen(prs.mf) + 1;
-	delete[] mf;
-	mf = new char[size];
-	strcpy_s(mf, size, prs.mf);
-
-	size = strlen(prs.phone) + 1;
-	delete[] phone;
-	phone = new char[size];
-	strcpy_s(phone, size, prs.phone);
-
-	age = prs.age;
-
-
-	return *this;
-}
+//Person& Person::operator=(const Person& prs)
+//{
+//	cout << "Operator = copy" << endl;
+//
+//	int size = strlen(prs.name) + 1;
+//	//////name = new char[8]{ "Unknown" };
+//	delete[] name;
+//	name = new char[size];
+//	strcpy_s(name, size, prs.name);
+//
+//	size = strlen(prs.fname) + 1;
+//	delete[] fname;
+//	fname = new char[size];
+//	strcpy_s(fname, size, prs.fname);
+//
+//	size = strlen(prs.mf) + 1;
+//	delete[] mf;
+//	mf = new char[size];
+//	strcpy_s(mf, size, prs.mf);
+//
+//	size = strlen(prs.phone) + 1;
+//	delete[] phone;
+//	phone = new char[size];
+//	strcpy_s(phone, size, prs.phone);
+//
+//	age = prs.age;
+//
+//
+//	return *this;
+//}
 
 Person& Person::operator=(Person&& prs)///obj   Move
 {

@@ -45,6 +45,15 @@ void main()
 	cout << "___________________________" << endl;
 	mooveCopy.Output();
 	
+	////3.
+
+	//Person obj ( Generate());
+
+
+	//Person objj (100, "f", "Oleksandra", "Ternova", "222322");
+
+
+
 	
 	}  /// destructor test
 

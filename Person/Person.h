@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include <iostream>
 using namespace std;
@@ -15,23 +15,23 @@ public:
 	Person();
 	Person(int ag, const char* m_f, const char* nm, const char* fn, const char* phn);
 	Person(const Person& prs) ;//// copy constructor
-	Person( Person&& prs);//// move constructor   &&- r value посилання для тимчасових обєктів що повертаються
+	Person( Person&& prs);//// move constructor   &&- r value РїРѕСЃРёР»Р°РЅРЅСЏ РґР»СЏ С‚РёРјС‡Р°СЃРѕРІРёС… РѕР±С”РєС‚С–РІ С‰Рѕ РїРѕРІРµСЂС‚Р°СЋС‚СЊСЃСЏ
 
-	Person& operator=(const Person& obj) ;////оператор присвоєння, за аналогією  copy constructor, не побітове COPY
+	Person& operator=(const Person& obj) ;////РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІРѕС”РЅРЅСЏ, Р·Р° Р°РЅР°Р»РѕРіС–С”СЋ  copy constructor, РЅРµ РїРѕР±С–С‚РѕРІРµ COPY
 	Person& operator=( Person&& obj); ///MOVE
 
 
 
 
-	bool  operator == (const Person& obj);///// логічний оператор дорівнює
+	bool  operator == (const Person& obj);///// Р»РѕРіС–С‡РЅРёР№ РѕРїРµСЂР°С‚РѕСЂ РґРѕСЂС–РІРЅСЋС”
 	//bool  operator != (const Person& obj);  DZ!!!!!!!!!!!!!!!!!!!!
 
 	/// <summary>
-	/// bool operator>(const Person& obj);////порівнюємо за ім'я та фаміліє
+	/// bool operator>(const Person& obj);////РїРѕСЂС–РІРЅСЋС”РјРѕ Р·Р° С–Рј'СЏ С‚Р° С„Р°РјС–Р»С–С”
 	/// bool operator<(const Person& obj);
 	/// </summary>
 	/// 
-	/// Додаємо клас Date( якому є operator=)
+	/// Р”РѕРґР°С”РјРѕ РєР»Р°СЃ Date( СЏРєРѕРјСѓ С” operator=)
 	/// 
 	/// 
 
