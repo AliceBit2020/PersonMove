@@ -1,13 +1,13 @@
-#include "Person.h"
+п»ї#include "Person.h"
 
 
 Person::Person()
 {
 	cout << "Constructor defoult" << endl;
 	age = 0;
-	mf = new char[8]{ "Unknown" };////// динамічно виділили пам_ять
+	mf = new char[8]{ "Unknown" };////// РґРёРЅР°РјС–С‡РЅРѕ РІРёРґС–Р»РёР»Рё РїР°Рј_СЏС‚СЊ
 	name = new char[8]{ "Unknown" };
-	fname = new char[8]{ "Unknown" };////// динамічно виділили пам_ять
+	fname = new char[8]{ "Unknown" };////// РґРёРЅР°РјС–С‡РЅРѕ РІРёРґС–Р»РёР»Рё РїР°Рј_СЏС‚СЊ
 	phone = new char[8]{ "Unknown" };
 }
 
@@ -19,9 +19,9 @@ Person::Person(int ag, const char* m_f, const char* nm, const char* fn, const ch
 	age = ag;
 
 	
-	int size = strlen(m_f) + 1;////робота зі строками  тут вызначаемо розмір строки m_f що зайде  mail -4
-	mf = new char[size];////виділяемо в кучі пям_ть під потрібний розмір
-	strcpy_s(mf, size, m_f);/////робимо копію з m_f що зайде в наше поле mf
+	int size = strlen(m_f) + 1;////СЂРѕР±РѕС‚Р° Р·С– СЃС‚СЂРѕРєР°РјРё  С‚СѓС‚ РІС‹Р·РЅР°С‡Р°РµРјРѕ СЂРѕР·РјС–СЂ СЃС‚СЂРѕРєРё m_f С‰Рѕ Р·Р°Р№РґРµ  mail -4
+	mf = new char[size];////РІРёРґС–Р»СЏРµРјРѕ РІ РєСѓС‡С– РїСЏРј_С‚СЊ РїС–Рґ РїРѕС‚СЂС–Р±РЅРёР№ СЂРѕР·РјС–СЂ
+	strcpy_s(mf, size, m_f);/////СЂРѕР±РёРјРѕ РєРѕРїС–СЋ Р· m_f С‰Рѕ Р·Р°Р№РґРµ РІ РЅР°С€Рµ РїРѕР»Рµ mf
 
 	size = strlen(nm) + 1;
 	name = new char[size];
@@ -41,7 +41,7 @@ Person::Person(int ag, const char* m_f, const char* nm, const char* fn, const ch
 Person::Person(const Person& prs)/////copy constructor
 {
 	cout << "Copy constructor" << endl;
-	/////name = prs.name; ///побітове копі
+	/////name = prs.name; ///РїРѕР±С–С‚РѕРІРµ РєРѕРїС–
 	int size = strlen(prs.name) + 1;
 	name = new char[size];
 	strcpy_s(name, size, prs.name);
@@ -120,7 +120,7 @@ Person& Person::operator=(Person&& prs)///obj   Move
 	delete[] mf;
 	delete[] phone;
 
-	////передаємо право користування ресурсами
+	////РїРµСЂРµРґР°С”РјРѕ РїСЂР°РІРѕ РєРѕСЂРёСЃС‚СѓРІР°РЅРЅСЏ СЂРµСЃСѓСЂСЃР°РјРё
 	name = prs.name;
 	fname = prs.fname;
 	mf = prs.mf;
@@ -138,15 +138,15 @@ Person& Person::operator=(Person&& prs)///obj   Move
 	return *this;
 }
 
-bool Person::operator==(const Person& obj)//////   тут порівнюємо this з obj
+bool Person::operator==(const Person& obj)//////   С‚СѓС‚ РїРѕСЂС–РІРЅСЋС”РјРѕ this Р· obj
 {
 
 
-	////if(name==obj.name)////указатели, не підходить  порівняння вказівників
-	//// if (*name==*obj.name)//// порівняння перших символів
+	////if(name==obj.name)////СѓРєР°Р·Р°С‚РµР»Рё, РЅРµ РїС–РґС…РѕРґРёС‚СЊ  РїРѕСЂС–РІРЅСЏРЅРЅСЏ РІРєР°Р·С–РІРЅРёРєС–РІ
+	//// if (*name==*obj.name)//// РїРѕСЂС–РІРЅСЏРЅРЅСЏ РїРµСЂС€РёС… СЃРёРјРІРѕР»С–РІ
 
 
-	/////////    ПОРІВНЯННЯ СТРОК!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	/////////    РџРћР Р†Р’РќРЇРќРќРЇ РЎРўР РћРљ!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ////////	/*
 ////////	
 ////////	int strcmp(
@@ -154,12 +154,12 @@ bool Person::operator==(const Person& obj)//////   тут порівнюємо this з obj
 ////////   const char *string2
 ////////);
 ////////	
-////////	Возвращаемое значение каждой из этих функций отображает порядковое отношение строки string1 к строке string2.
+////////	Р’РѕР·РІСЂР°С‰Р°РµРјРѕРµ Р·РЅР°С‡РµРЅРёРµ РєР°Р¶РґРѕР№ РёР· СЌС‚РёС… С„СѓРЅРєС†РёР№ РѕС‚РѕР±СЂР°Р¶Р°РµС‚ РїРѕСЂСЏРґРєРѕРІРѕРµ РѕС‚РЅРѕС€РµРЅРёРµ СЃС‚СЂРѕРєРё string1 Рє СЃС‚СЂРѕРєРµ string2.
 ////////
-////////		Значение	Отношение типа string1 к string2
-////////		< 0	string1 меньше string2
-////////		0	string1 идентична string2
-////////		> 0	string1 больше string2*/
+////////		Р—РЅР°С‡РµРЅРёРµ	РћС‚РЅРѕС€РµРЅРёРµ С‚РёРїР° string1 Рє string2
+////////		< 0	string1 РјРµРЅСЊС€Рµ string2
+////////		0	string1 РёРґРµРЅС‚РёС‡РЅР° string2
+////////		> 0	string1 Р±РѕР»СЊС€Рµ string2*/
 
 
 
@@ -177,9 +177,13 @@ bool Person::operator==(const Person& obj)//////   тут порівнюємо this з obj
 Person::~Person()
 {
 	cout << "Destructor" << endl;
+	if(name )
 	delete [] name;///char*
+	if(fname)
 	delete[] fname;
+	if(mf)
 	delete[] mf;
+	if(phone)
 	delete[] phone;
 }
 

@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "Person.h"
 #include <iostream>
 
@@ -8,64 +8,47 @@ Person Generate();
 void Func1(Person prs)
 {
 	prs.Output();
-}///  передача по копії   prs destructor
+}///  РїРµСЂРµРґР°С‡Р° РїРѕ РєРѕРїС–С—   prs destructor
 void main()
 {
 
 
-	///0  Звичайні типи
-
-	//	
-	//int a, b,c;
-	//a = b= c = 5;////    operator =
-
-	///////1. Послідовне використання оператора присвоєння  типу obj1=obj2=2  вимагає від оператора присвоєння повертати посилання на обєкт  Person& operator=(const Person& obj)  
+	///////1. РџРѕСЃР»С–РґРѕРІРЅРµ РІРёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ РѕРїРµСЂР°С‚РѕСЂР° РїСЂРёСЃРІРѕС”РЅРЅСЏ  С‚РёРїСѓ obj1=obj2=2  РІРёРјР°РіР°С” РІС–Рґ РѕРїРµСЂР°С‚РѕСЂР° РїСЂРёСЃРІРѕС”РЅРЅСЏ РїРѕРІРµСЂС‚Р°С‚Рё РїРѕСЃРёР»Р°РЅРЅСЏ РЅР° РѕР±С”РєС‚  Person& operator=(const Person& obj)  
 
 	//Person test(100, "f", "Oleksandra", "Ternova", "222322");
 
-	//Person obj1;
 
 	//Person obj2(25,"m","name","l_name","534636541");
 
-	//obj2 = test;	/// copy
-
-	//obj1.Output();
-	//obj2.Output();
-
-	///// move 
-
-	//obj1 = move(test);
-	//obj1.Output();
-	//test.Output();
-
-	/////2. Повернення обєкту за копією і подальше присвоєння призводить до того що тричі виділяеться память та потім відаляється при глибокому копіюванні, цього можна уникнути якщо передати/перенести/move управління обєктом памяті test  що виділився всередині фнкціі назовні одразу obj . Для цього перепишемо конструктор копіювання і присвоєння з глибоким копіюванням 
-
-	Person obj1;
-	obj1 = Generate();///  move =
-
-	Person obj2 = Generate();///move по умолчанию в системе
-	obj2.Output();
-
-	//Person obj3 = Generate();
-	Person obj4 = move(obj2);////   явно move конструктор
-
-	
+	//obj2 = test;	/// copy operator =
 
 	//Person obj1;
-	//obj1 = obj4;  ////copy  глибоке копыювання
-	//obj1 = move (obj4);/// move  obj4 передає вказівники obj1 а сам залишається з nullptr
+	//obj1 = move(test);//// move operator =
 
 
-	//////////////////  Copy
-	//Func1(test);
+	//
+	//obj1.Output();
+	//obj2.Output();
+	//test.Output();
 
-	/////////////////  Copy
+	///2.  Constructor  copy vs move
 
-	//Person obj_c(test);
+	Person test(100, "f", "Oleksandra", "Ternova", "222322");
+
+	Person deepCopy(test);//copy
+
+	Person mooveCopy(move(test));
+
+	deepCopy.Output();
+	cout << "___________________________" << endl;
+	test.Output();
+	cout << "___________________________" << endl;
+	mooveCopy.Output();
+	
 	
 	}  /// destructor test
 
-Person Generate()////   возврат обьекта из функции уже заложена move семантика
+Person Generate()////   РІРѕР·РІСЂР°С‚ РѕР±СЊРµРєС‚Р° РёР· С„СѓРЅРєС†РёРё СѓР¶Рµ Р·Р°Р»РѕР¶РµРЅР° move СЃРµРјР°РЅС‚РёРєР°
 {
 	
 	return Person (100, "f", "Oleksandra", "Ternova", "222322");
